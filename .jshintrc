@@ -14,11 +14,6 @@
     "beforeEach": false,
     "afterEach": false,
     "it": false,
-    "expect": false,
-
-    // Protractor
-    "browser": false,
-    "element": false,
-    "by": false
+    "expect": false
   }
 }
