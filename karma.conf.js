@@ -1,7 +1,6 @@
 //jshint strict: false
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
-
     basePath: './app',
 
     files: [
@@ -22,11 +21,6 @@ module.exports = function(config) {
 
     browsers: ['Chrome', 'Firefox'],
 
-    plugins: [
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-jasmine'
-    ]
-
+    plugins: ['karma-chrome-launcher', 'karma-firefox-launcher', 'karma-jasmine']
   });
 };

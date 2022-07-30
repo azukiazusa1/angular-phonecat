@@ -1,16 +1,12 @@
 'use strict';
 
-describe('Phone', function() {
+describe('Phone', function () {
   var $httpBackend;
   var Phone;
-  var phonesData = [
-    {name: 'Phone X'},
-    {name: 'Phone Y'},
-    {name: 'Phone Z'}
-  ];
+  var phonesData = [{ name: 'Phone X' }, { name: 'Phone Y' }, { name: 'Phone Z' }];
 
   // Add a custom equality tester before each test
-  beforeEach(function() {
+  beforeEach(function () {
     jasmine.addCustomEqualityTester(angular.equals);
   });
 
@@ -18,7 +14,7 @@ describe('Phone', function() {
   beforeEach(module('core.phone'));
 
   // Instantiate the service and "train" `$httpBackend` before each test
-  beforeEach(inject(function(_$httpBackend_, _Phone_) {
+  beforeEach(inject(function (_$httpBackend_, _Phone_) {
     $httpBackend = _$httpBackend_;
     $httpBackend.expectGET('phones/phones.json').respond(phonesData);
 
@@ -31,7 +27,7 @@ describe('Phone', function() {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('should fetch the phones data from `/phones/phones.json`', function() {
+  it('should fetch the phones data from `/phones/phones.json`', function () {
     var phones = Phone.query();
 
     expect(phones).toEqual([]);
@@ -39,5 +35,4 @@ describe('Phone', function() {
     $httpBackend.flush();
     expect(phones).toEqual(phonesData);
   });
-
 });
