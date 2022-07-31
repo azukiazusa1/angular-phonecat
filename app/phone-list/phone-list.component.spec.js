@@ -1,8 +1,16 @@
-'use strict';
+import 'angular';
+import 'angular-resource';
+import 'angular-route';
+import 'angular-mocks';
+
+import '../core/phone/phone.module';
+import '../core/phone/phone.service';
+import './phone-list.module';
+import './phone-list.component';
 
 describe('phoneList', function () {
   // Load the module that contains the `phoneList` component before each test
-  beforeEach(module('phoneList'));
+  beforeEach(angular.mock.module('phoneList'));
 
   // Test the controller
   describe('PhoneListController', function () {
@@ -18,7 +26,14 @@ describe('phoneList', function () {
     }));
 
     it('should create a `phones` property with 2 phones fetched with `$http`', function () {
-      jasmine.addCustomEqualityTester(angular.equals);
+      expect.extend({
+        toEqual: (actual, expected) => {
+          return {
+            pass: angular.equals(actual, expected),
+            message: `Expected ${actual} to equal ${expected}`
+          };
+        }
+      });
 
       expect(ctrl.phones).toEqual([]);
 

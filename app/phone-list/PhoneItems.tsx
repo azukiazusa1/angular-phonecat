@@ -5,7 +5,7 @@ import { Phone } from './types';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 type Props = {
-  phones: (Phone & { height: number })[];
+  phones: Phone[];
   query?: string;
   orderProp: 'name' | 'age';
 };

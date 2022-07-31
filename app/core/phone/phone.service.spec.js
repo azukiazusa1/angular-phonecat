@@ -1,4 +1,9 @@
-'use strict';
+import 'angular';
+import 'angular-resource';
+import 'angular-mocks';
+
+import '../phone/phone.module';
+import './phone.service';
 
 describe('Phone', function () {
   var $httpBackend;
@@ -7,11 +12,18 @@ describe('Phone', function () {
 
   // Add a custom equality tester before each test
   beforeEach(function () {
-    jasmine.addCustomEqualityTester(angular.equals);
+    expect.extend({
+      toEqual: (actual, expected) => {
+        return {
+          pass: angular.equals(actual, expected),
+          message: `Expected ${actual} to equal ${expected}`
+        };
+      }
+    });
   });
 
   // Load the module that contains the `Phone` service before each test
-  beforeEach(module('core.phone'));
+  beforeEach(() => angular.mock.module('core.phone'));
 
   // Instantiate the service and "train" `$httpBackend` before each test
   beforeEach(inject(function (_$httpBackend_, _Phone_) {
