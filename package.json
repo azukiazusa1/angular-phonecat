@@ -11,7 +11,12 @@
     "angular-resource": "1.8.x",
     "angular-route": "1.8.x",
     "bootstrap": "3.3.x",
-    "jquery": "3.3.x"
+    "jquery": "3.3.x",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-flip-toolkit": "^7.0.14",
+    "react-transition-group": "^4.4.2",
+    "react2angular": "^4.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
@@ -22,6 +27,7 @@
     "@types/jquery": "^3.5.14",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "@types/react-transition-group": "^4.4.5",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "angular-mocks": "1.8.x",

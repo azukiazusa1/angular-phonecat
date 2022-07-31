@@ -7,7 +7,10 @@ angular.module('phoneList').component('phoneList', {
   controller: [
     'Phone',
     function PhoneListController(Phone) {
-      this.phones = Phone.query();
+      this.phones = [];
+      Phone.query().$promise.then((phones) => {
+        this.phones = phones;
+      });
       this.orderProp = 'age';
     }
   ]
