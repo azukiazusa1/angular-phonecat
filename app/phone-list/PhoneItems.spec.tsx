@@ -1,7 +1,5 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import 'angular';
-import '../phone-list/phone-list.module';
 import PhoneItems from './PhoneItems';
 import phones from '../phones/phones.json';
 

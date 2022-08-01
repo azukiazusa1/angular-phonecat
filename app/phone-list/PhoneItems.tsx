@@ -1,6 +1,4 @@
-import angular from 'angular';
 import React from 'react';
-import { react2angular } from 'react2angular';
 import { Phone } from './types';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -64,7 +62,3 @@ const PhoneItems: React.FC<Props> = ({ phones, query, orderProp }) => {
 };
 
 export default PhoneItems;
-
-angular
-  .module('phoneList')
-  .component('phoneItems', react2angular(PhoneItems, ['phones', 'query', 'orderProp']));
