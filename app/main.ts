@@ -17,6 +17,5 @@ import './phone-detail/phone-detail.module';
 import './phone-detail/phone-detail.component';
 import './phone-detail/Specifiction';
 import './core/core.module';
-import './core/checkmark/checkmark.filter';
 import './core/phone/phone.module';
 import './core/phone/phone.service';

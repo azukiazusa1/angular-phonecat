@@ -2,15 +2,13 @@ import angular from 'angular';
 import React from 'react';
 import { react2angular } from 'react2angular';
 import { PhoneDetail } from './types';
+import { checkmark } from '../core/checkmark/checkmark';
 
 type Props = {
   phone: PhoneDetail;
-  $filter: ng.IFilterService;
 };
 
-const Specifiction: React.FC<Props> = ({ phone, $filter }) => {
-  const checkmark = $filter('checkmark') as (input: boolean) => string;
-
+const Specifiction: React.FC<Props> = ({ phone }) => {
   return (
     <ul className="specs">
       <li>
@@ -122,6 +120,4 @@ const Specifiction: React.FC<Props> = ({ phone, $filter }) => {
 
 export default Specifiction;
 
-angular
-  .module('phoneDetail')
-  .component('specification', react2angular(Specifiction, ['phone'], ['$filter']));
+angular.module('phoneDetail').component('specification', react2angular(Specifiction, ['phone']));
