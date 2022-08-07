@@ -1,28 +1,13 @@
 import angular from 'angular';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { react2angular } from 'react2angular';
+import usePhones from './usePhones';
 import PhoneItems from './PhoneItems';
-import { Phone } from './types';
 
-type Props = {
-  Phone: ng.resource.IResourceClass<Phone>;
-};
-
-const PhoneList: React.FC<Props> = ({ Phone }) => {
-  const [phones, setPhones] = useState<Phone[]>([]);
+const PhoneList: React.FC = () => {
+  const { phones } = usePhones();
   const [query, setQuery] = useState('');
   const [orderProp, setOrderProp] = useState<'name' | 'age'>('age');
-  useEffect(() => {
-    let igonre = false;
-    Phone.query().$promise.then((result) => {
-      if (!igonre) {
-        setPhones(result);
-      }
-    });
-    return () => {
-      igonre = true;
-    };
-  }, [Phone, setPhones]);
 
   return (
     <div className="container-fluid">
@@ -52,4 +37,4 @@ const PhoneList: React.FC<Props> = ({ Phone }) => {
 
 export default PhoneList;
 
-angular.module('phoneList').component('phoneList', react2angular(PhoneList, [], ['Phone']));
+angular.module('phoneList').component('phoneList', react2angular(PhoneList, []));
