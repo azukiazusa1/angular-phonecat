@@ -1,7 +1,5 @@
 import React from 'react';
 import { render, screen, within } from '@testing-library/react';
-import 'angular';
-import './phone-detail.module';
 import PhoneImages from './PhoneImags';
 import nexusS from '../phones/nexus-s.json';
 import userEvent from '@testing-library/user-event';

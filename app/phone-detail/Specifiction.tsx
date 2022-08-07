@@ -1,6 +1,4 @@
-import angular from 'angular';
 import React from 'react';
-import { react2angular } from 'react2angular';
 import { PhoneDetail } from './types';
 import { checkmark } from '../core/checkmark/checkmark';
 
@@ -119,5 +117,3 @@ const Specifiction: React.FC<Props> = ({ phone }) => {
 };
 
 export default Specifiction;
-
-angular.module('phoneDetail').component('specification', react2angular(Specifiction, ['phone']));

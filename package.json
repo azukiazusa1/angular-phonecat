@@ -30,6 +30,7 @@
     "@tsconfig/create-react-app": "^1.0.2",
     "@types/angular-mocks": "^1.7.1",
     "@types/angular-resource": "^1.5.17",
+    "@types/angular-route": "^1.7.2",
     "@types/jest": "^28.1.6",
     "@types/jquery": "^3.5.14",
     "@types/react": "^18.0.15",

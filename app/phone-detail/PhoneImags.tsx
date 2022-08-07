@@ -1,6 +1,4 @@
-import angular from 'angular';
 import React from 'react';
-import { react2angular } from 'react2angular';
 import { PhoneDetail } from './types';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -46,7 +44,3 @@ const PhoneImages: React.FC<Props> = ({ phone, mainImageUrl, setImage }) => {
 };
 
 export default PhoneImages;
-
-angular
-  .module('phoneDetail')
-  .component('phoneImages', react2angular(PhoneImages, ['phone', 'mainImageUrl', 'setImage']));
