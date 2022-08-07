@@ -4,28 +4,23 @@ import { react2angular } from 'react2angular';
 import PhoneImages from './PhoneImags';
 import Specifiction from './Specifiction';
 import { PhoneDetail } from './types';
+import usePhone from './usePhone';
 
 type Props = {
-  Phone: ng.resource.IResourceClass<PhoneDetail>;
   $routeParams: ng.route.IRouteParamsService;
 };
 
-const PhoneDetail: React.FC<Props> = ({ Phone, $routeParams }) => {
-  const [phone, setPhone] = useState<PhoneDetail | null>(null);
+const PhoneDetail: React.FC<Props> = ({ $routeParams }) => {
   const [mainImageUrl, setMainImageUrl] = useState('');
+  const { phone } = usePhone({
+    phoneId: $routeParams.phoneId
+  });
 
   useEffect(() => {
-    let igonre = false;
-    Phone.get({ phoneId: $routeParams.phoneId }, (result: PhoneDetail) => {
-      if (!igonre) {
-        setPhone(result);
-        setMainImageUrl(result.images[0]);
-      }
-    });
-    return () => {
-      igonre = true;
-    };
-  }, [Phone, setPhone, $routeParams, setMainImageUrl]);
+    if (phone) {
+      setMainImageUrl(phone.images[0]);
+    }
+  }, [phone]);
 
   if (!phone || !mainImageUrl) {
     return null;
@@ -44,4 +39,4 @@ export default PhoneDetail;
 
 angular
   .module('phoneDetail')
-  .component('phoneDetail', react2angular(PhoneDetail, [], ['Phone', '$routeParams']));
+  .component('phoneDetail', react2angular(PhoneDetail, [], ['$routeParams']));

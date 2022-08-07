@@ -1,6 +1,5 @@
 import 'jquery';
 import 'angular';
-import 'angular-resource';
 import 'angular-route';
 import 'angular-animate/angular-animate';
 
@@ -15,6 +14,3 @@ import './phone-list/phone-list.module';
 import './phone-list/PhoneList';
 import './phone-detail/phone-detail.module';
 import './phone-detail/PhoneDetail';
-import './core/core.module';
-import './core/phone/phone.module';
-import './core/phone/phone.service';
