@@ -81,9 +81,11 @@ test.describe('PhoneCat Application', () => {
       const thumbnails = page.locator('role=listitem').locator('role=img');
 
       await thumbnails.nth(2).click();
+      await page.waitForTimeout(1000);
       expect(mainImage).toHaveAttribute('src', 'img/phones/nexus-s.2.jpg');
 
       await thumbnails.first().click();
+      await page.waitForTimeout(1000);
       expect(mainImage).toHaveAttribute('src', 'img/phones/nexus-s.0.jpg');
     });
   });

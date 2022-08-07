@@ -16,6 +16,7 @@ import './phone-list/PhoneList';
 import './phone-detail/phone-detail.module';
 import './phone-detail/phone-detail.component';
 import './phone-detail/Specifiction';
+import './phone-detail/PhoneImags';
 import './core/core.module';
 import './core/phone/phone.module';
 import './core/phone/phone.service';

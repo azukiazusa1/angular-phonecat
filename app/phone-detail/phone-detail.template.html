@@ -1,17 +1,5 @@
-<div class="phone-images">
-  <img ng-src="{{img}}" class="phone"
-      ng-class="{selected: img === $ctrl.mainImageUrl}"
-      ng-repeat="img in $ctrl.phone.images" />
-</div>
+<phone-images ng-if="$ctrl.phone.$resolved" phone="$ctrl.phone" main-image-url="$ctrl.mainImageUrl"
+  set-image="$ctrl.setImage">
+</phone-images>
 
-<h1>{{$ctrl.phone.name}}</h1>
-
-<p>{{$ctrl.phone.description}}</p>
-
-<ul class="phone-thumbs">
-  <li ng-repeat="img in $ctrl.phone.images">
-    <img ng-src="{{img}}" ng-click="$ctrl.setImage(img)" />
-  </li>
-</ul>
-
-<specification ng-if="$ctrl.phone.$resolved" phone="$ctrl.phone"></specification> 
+<specification ng-if="$ctrl.phone.$resolved" phone="$ctrl.phone"></specification>
