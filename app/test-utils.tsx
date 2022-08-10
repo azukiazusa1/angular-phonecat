@@ -1,13 +1,29 @@
 import React, { ReactNode, ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { SWRConfig } from 'swr';
+import { MemoryRouter, MemoryRouterProps, Route } from 'react-router-dom';
 
-const Wrapper = ({ children }: { children: ReactNode }) => {
-  return <SWRConfig value={{ dedupingInterval: 0 }}>{children}</SWRConfig>;
+type RouterOptions = {
+  initialEntries?: MemoryRouterProps['initialEntries'];
+  path?: string;
 };
 
-const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
-  render(ui, { wrapper: Wrapper, ...options });
+const Wrapper = ({ initialEntries, path = '/' }: RouterOptions = {}) =>
+  function Wrapper({ children }: { children: ReactNode }) {
+    return (
+      <MemoryRouter initialEntries={initialEntries}>
+        <SWRConfig value={{ dedupingInterval: 0 }}>
+          <Route path={path}>{children}</Route>
+        </SWRConfig>
+      </MemoryRouter>
+    );
+  };
+
+const customRender = (
+  ui: ReactElement,
+  options?: Omit<RenderOptions, 'wrapper'> & { routeOptions?: RouterOptions },
+  routeOptions?: RouterOptions
+) => render(ui, { wrapper: Wrapper(routeOptions), ...options });
 
 export * from '@testing-library/react';
 

@@ -1,6 +1,4 @@
-import angular from 'angular';
 import React, { useState } from 'react';
-import { react2angular } from 'react2angular';
 import usePhones from './usePhones';
 import PhoneItems from './PhoneItems';
 
@@ -36,5 +34,3 @@ const PhoneList: React.FC = () => {
 };
 
 export default PhoneList;
-
-angular.module('phoneList').component('phoneList', react2angular(PhoneList, []));

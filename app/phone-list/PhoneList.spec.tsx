@@ -1,8 +1,6 @@
 import React from 'react';
 import { render, screen, waitFor } from '../test-utils';
 import userEvent from '@testing-library/user-event';
-import 'angular';
-import '../phone-list/phone-list.module';
 import PhoneList from './PhoneList';
 
 describe('PhoneList', () => {

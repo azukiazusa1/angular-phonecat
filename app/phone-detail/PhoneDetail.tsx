@@ -1,19 +1,16 @@
-import angular from 'angular';
 import React, { useEffect, useState } from 'react';
-import { react2angular } from 'react2angular';
+import { useParams } from 'react-router-dom';
 import PhoneImages from './PhoneImags';
 import Specifiction from './Specifiction';
 import { PhoneDetail } from './types';
 import usePhone from './usePhone';
 
-type Props = {
-  $routeParams: ng.route.IRouteParamsService;
-};
+const PhoneDetail: React.FC = () => {
+  const { phoneId } = useParams<{ phoneId: string }>();
 
-const PhoneDetail: React.FC<Props> = ({ $routeParams }) => {
   const [mainImageUrl, setMainImageUrl] = useState('');
   const { phone } = usePhone({
-    phoneId: $routeParams.phoneId
+    phoneId
   });
 
   useEffect(() => {
@@ -36,7 +33,3 @@ const PhoneDetail: React.FC<Props> = ({ $routeParams }) => {
 };
 
 export default PhoneDetail;
-
-angular
-  .module('phoneDetail')
-  .component('phoneDetail', react2angular(PhoneDetail, [], ['$routeParams']));

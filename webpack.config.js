@@ -7,7 +7,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
-  entry: './app/main.ts',
+  entry: './app/index.tsx',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'main.js'

@@ -2,6 +2,8 @@ import React from 'react';
 import { Phone } from './types';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
+
 type Props = {
   phones: Phone[];
   query?: string;
@@ -47,10 +49,10 @@ const PhoneItems: React.FC<Props> = ({ phones, query, orderProp }) => {
             }}>
             <Flipped flipId={phone.id}>
               <li className="thumbnail phone-list-item">
-                <a href={`#!/phones/${phone.id}`} className="thumb">
+                <Link to={`/phones/${phone.id}`} className="thumb">
                   <img src={phone.imageUrl} alt={phone.name} />
-                </a>
-                <a href={`#!/phones/${phone.id}`}>{phone.name}</a>
+                </Link>
+                <Link to={`/phones/${phone.id}`}>{phone.name}</Link>
                 <p>{phone.snippet}</p>
               </li>
             </Flipped>
